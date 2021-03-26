@@ -60,3 +60,30 @@ let carro: any = 'BMW'
 console.log(carro)
 carro = { marca: 'BMW', ano: 2019 }
 console.log(carro)
+
+// ==== funções
+function retornaMeuNome(): string {
+    // return minhaIdade
+    return nome
+}
+console.log(retornaMeuNome())
+
+function digaOi(): void {
+    console.log('Oi')
+    // return minhaIdade
+}
+digaOi()
+
+function multiplicar(numA: number, numB: number): number {
+    return numA * numB
+}
+
+// console.log(multiplicar(2, 'Bia'))
+console.log(multiplicar(2, 3.7))
+
+// ==== funções como tipos
+let calculo: (x: number, y: number) => number
+// calculo = digaOi
+// calculo()
+calculo = multiplicar
+console.log(calculo(5, 6))
