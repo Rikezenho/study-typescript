@@ -1,5 +1,4 @@
 "use strict";
-var _this = this;
 // ==== let & const
 var seraQuePode = '?'; // hoisting, pq transpila pra var
 console.log(seraQuePode);
@@ -40,15 +39,15 @@ saudacao();
 var falarCom = function (pessoa) { return console.log("Ola " + pessoa); };
 falarCom('João');
 // ==== this
-function normalComThis() {
-    console.log(this);
-}
-normalComThis();
-var normalComThisEspecial = normalComThis.bind({ nome: 'Ana' });
-normalComThisEspecial();
-// quem é o this aqui? é o window!
-var arrowComThis = function () { return console.log(_this); };
-arrowComThis();
-var arrowComThisEspecial = arrowComThis.bind({ nome: 'Ana' });
-arrowComThisEspecial();
+// function normalComThis() {
+//     console.log(this)
+// }
+// normalComThis()
+// const normalComThisEspecial = normalComThis.bind({ nome: 'Ana' })
+// normalComThisEspecial()
+// // quem é o this aqui? é o window!
+// const arrowComThis = () => console.log(this)
+// arrowComThis()
+// const arrowComThisEspecial = arrowComThis.bind({ nome: 'Ana' })
+// arrowComThisEspecial()
 //# sourceMappingURL=ecmascript.js.map

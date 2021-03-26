@@ -49,17 +49,17 @@ falarCom('João')
 
 // ==== this
 
-function normalComThis() {
-    console.log(this)
-}
-normalComThis()
+// function normalComThis() {
+//     console.log(this)
+// }
+// normalComThis()
 
-const normalComThisEspecial = normalComThis.bind({ nome: 'Ana' })
-normalComThisEspecial()
+// const normalComThisEspecial = normalComThis.bind({ nome: 'Ana' })
+// normalComThisEspecial()
 
-// quem é o this aqui? é o window!
-const arrowComThis = () => console.log(this)
-arrowComThis()
+// // quem é o this aqui? é o window!
+// const arrowComThis = () => console.log(this)
+// arrowComThis()
 
-const arrowComThisEspecial = arrowComThis.bind({ nome: 'Ana' })
-arrowComThisEspecial()
+// const arrowComThisEspecial = arrowComThis.bind({ nome: 'Ana' })
+// arrowComThisEspecial()
