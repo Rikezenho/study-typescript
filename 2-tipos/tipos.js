@@ -13,3 +13,9 @@ var possuiHobbies = false;
 possuiHobbies = true;
 // possuiHobbies = 1
 console.log(possuiHobbies);
+// tipos explícitos
+var minhaIdade;
+minhaIdade = 27;
+console.log(typeof minhaIdade);
+// minhaIdade = 'idade é 27'
+// console.log(typeof minhaIdade)
