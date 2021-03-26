@@ -27,4 +27,20 @@ console.log(aniversarioEsperto);
 const casamentoEsperto = new DataEsperta;
 casamentoEsperto.ano = 2017;
 console.log(casamentoEsperto);
+/**
+ * ==== Desafio Produto
+ * Atributos: nome, preco e desconto
+ * Criar o construtor
+ * Obs 1: Desconto é opcional (valor padrão 0)
+ * Obs 2: Criar dois produtos: passando dois e três parâmetros
+ */
+class Produto {
+    constructor(nome, preco, desconto = 0) {
+        this.nome = nome;
+        this.preco = preco;
+        this.desconto = desconto;
+    }
+}
+const produto1 = new Produto('Omo Multiação', 20.00, 0.20);
+const produto2 = new Produto('Vanish O2', 12.00);
 //# sourceMappingURL=classes.js.map
