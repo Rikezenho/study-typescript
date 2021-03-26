@@ -50,4 +50,17 @@ falarCom('João');
 // arrowComThis()
 // const arrowComThisEspecial = arrowComThis.bind({ nome: 'Ana' })
 // arrowComThisEspecial()
+// ==== valor padrão
+function contagemRegressiva(inicio, fim) {
+    if (inicio === void 0) { inicio = 5; }
+    if (fim === void 0) { fim = inicio - 5; }
+    console.log(inicio);
+    while (inicio > fim) {
+        inicio--;
+        console.log(inicio);
+    }
+    console.log('fim!');
+}
+contagemRegressiva();
+contagemRegressiva(3);
 //# sourceMappingURL=ecmascript.js.map
