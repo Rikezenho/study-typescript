@@ -174,3 +174,27 @@ console.log(boasVindas)
     const { primeiroNome, experiencia } = { primeiroNome: "Will", experiencia: 12 }
     console.log(primeiroNome, experiencia)
 }
+
+// ==== callback
+
+function esperar3s(callback: (dado: string) => void) {
+    setTimeout(() => {
+        callback('3 segundos depois...')
+    }, 3000)
+}
+
+esperar3s(function (resultado: string) {
+    console.log(resultado)
+})
+
+function esperar3sPromise() {
+    // aí precisa mudar o tsconfig para es6
+    return new Promise((resolve: any) => {
+        setTimeout(() => {
+            resolve('3 segundos depois...')
+        }, 3000)
+    })
+}
+
+esperar3sPromise()
+    .then(dado => console.log(dado))
