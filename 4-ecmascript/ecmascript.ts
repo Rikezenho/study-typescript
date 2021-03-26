@@ -187,7 +187,7 @@ esperar3s(function (resultado: string) {
     console.log(resultado)
 })
 
-function esperar3sPromise() {
+function esperar3sPromise(): Promise<string> {
     // aí precisa mudar o tsconfig para es6
     return new Promise((resolve: any) => {
         setTimeout(() => {
