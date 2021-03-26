@@ -40,7 +40,24 @@ class Produto {
         this.preco = preco;
         this.desconto = desconto;
     }
+    precoComDesconto() {
+        const { preco, desconto } = this;
+        if (!desconto)
+            return preco;
+        return preco - (preco * desconto);
+    }
+    descontoFormatado() {
+        const { desconto } = this;
+        if (!desconto)
+            return '';
+        return !!desconto ? `(${desconto * 100}% OFF)` : '';
+    }
+    resumo() {
+        return `${this.nome} - R$${this.precoComDesconto()} ${this.descontoFormatado()}`;
+    }
 }
 const produto1 = new Produto('Omo Multiação', 20.00, 0.20);
 const produto2 = new Produto('Vanish O2', 12.00);
+console.log(produto1.resumo());
+console.log(produto2.resumo());
 //# sourceMappingURL=classes.js.map

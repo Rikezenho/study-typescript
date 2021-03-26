@@ -58,6 +58,24 @@ class Produto {
         public preco: number,
         public desconto: number = 0,
     ) {}
+
+    private precoComDesconto(): number {
+        const { preco, desconto } = this
+
+        if (!desconto) return preco
+        return preco - (preco * desconto)
+    }
+
+    private descontoFormatado(): string {
+        const { desconto } = this
+
+        if (!desconto) return '';
+        return !!desconto ? `(${desconto * 100}% OFF)` : ''
+    }
+
+    public resumo(): string {
+        return `${this.nome} - R$${this.precoComDesconto()} ${this.descontoFormatado()}`
+    }
 }
 
 const produto1: Produto = new Produto(
@@ -70,3 +88,6 @@ const produto2: Produto = new Produto(
     'Vanish O2',
     12.00,
 )
+
+console.log(produto1.resumo())
+console.log(produto2.resumo())
