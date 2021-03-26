@@ -74,13 +74,14 @@ console.log(Math.max.apply(Math, numbers));
 var turmaA = ['João', 'Maria', 'Fernando'];
 var turmaB = __spreadArray(['Fernando', 'Miguel', 'Lorena'], turmaA);
 console.log(turmaB);
-function retornarArray() {
+function retornarArray(a) {
     var args = [];
-    for (var _i = 0; _i < arguments.length; _i++) {
-        args[_i] = arguments[_i];
+    for (var _i = 1; _i < arguments.length; _i++) {
+        args[_i - 1] = arguments[_i];
     }
-    return args;
+    return __spreadArray([a], args);
 }
 var numeros = retornarArray(1, 2, 3, 4, 5, 6);
 console.log(numeros);
+console.log(retornarArray.apply(void 0, __spreadArray([numbers[0]], numbers)));
 //# sourceMappingURL=ecmascript.js.map

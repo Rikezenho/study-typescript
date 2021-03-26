@@ -85,9 +85,10 @@ const turmaA: string[] = ['João', 'Maria', 'Fernando']
 const turmaB: string[] = ['Fernando', 'Miguel', 'Lorena', ...turmaA]
 console.log(turmaB)
 
-function retornarArray(...args: number[]): number[] {
-    return args
+function retornarArray(a: number, ...args: number[]): number[] {
+    return [a, ...args]
 }
 
 const numeros = retornarArray(1, 2, 3, 4, 5, 6)
 console.log(numeros)
+console.log(retornarArray(numbers[0], ...numbers))
