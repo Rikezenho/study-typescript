@@ -23,3 +23,18 @@ function soma(a: any, b: any) {
 let qualquerCoisa
 qualquerCoisa = 12
 qualquerCoisa = 'abc'
+
+// strictNullChecks, noUnusedParameters e noUnusedLocals
+function saudar(
+    isManha: boolean,
+    // horas: number,
+): string {
+    // let a = 1
+    let saudacao: string
+    if (isManha) {
+        saudacao = 'Bom dia!'
+    } else {
+        saudacao = 'Tenha uma boa vida'
+    }
+    return saudacao
+}
