@@ -138,9 +138,7 @@ console.log(boasVindas)
 
 // 1) Abaixo temos um código em JavaScript. "Traduza-o" para TypeScript!
 {
-    const dobro: (valor: number) => number = (valor: number): number => {
-        return valor * 2
-    }
+    const dobro = (valor: number): number => valor * 2
     console.log(dobro(10))
 }
 

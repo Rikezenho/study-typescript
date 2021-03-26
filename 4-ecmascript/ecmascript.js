@@ -122,9 +122,7 @@ console.log(boasVindas);
 // ==== exercicios
 // 1) Abaixo temos um código em JavaScript. "Traduza-o" para TypeScript!
 {
-    var dobro = function (valor) {
-        return valor * 2;
-    };
+    var dobro = function (valor) { return valor * 2; };
     console.log(dobro(10));
 }
 // 2) Verifique se há espaço para melhorias nesse trecho de código!
