@@ -126,3 +126,18 @@ var produto = {
     }
 };
 produto.validarProduto();
+// ==== null
+var altura = 12;
+// altura = null
+var alturaOpcional = 12;
+alturaOpcional = null;
+var contato1 = {
+    nome: 'Fulano',
+    tel1: '99999990',
+    tel2: null
+};
+var podeSerNulo = null; // infere any
+podeSerNulo = 12;
+console.log(podeSerNulo);
+podeSerNulo = 'abc';
+console.log(podeSerNulo);
