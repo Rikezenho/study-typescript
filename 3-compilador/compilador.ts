@@ -14,3 +14,8 @@ console.log(`Canal = ${canal}`)
 ;(() => {
     throw new Error('sadasdasd')
 })();
+
+// noImplicitAny
+function soma(a: any, b: any) {
+    return a + b
+}

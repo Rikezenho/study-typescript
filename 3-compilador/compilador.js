@@ -13,4 +13,8 @@ console.log("Canal = " + canal);
 (function () {
     throw new Error('sadasdasd');
 })();
+// noImplicitAny
+function soma(a, b) {
+    return a + b;
+}
 //# sourceMappingURL=compilador.js.map
