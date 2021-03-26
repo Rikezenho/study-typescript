@@ -100,10 +100,29 @@ funcionario = {
         return 'Fora do horário';
     }
 };
-// union types
+// ==== union types
 var nota = 10;
 console.log("Minha nota \u00E9 " + nota + "!");
 nota = '10';
 console.log("Minha nota \u00E9 " + nota + "!");
 // nota = true
 // console.log(`Minha nota é ${nota}!`)
+// ==== tipo "never"
+function falha(msg) {
+    // while (true) {
+    // }
+    throw new Error(msg);
+}
+var produto = {
+    nome: 'Sabão',
+    preco: 8,
+    validarProduto: function () {
+        if (!this.nome || this.nome.trim().length == 0) {
+            falha('precisa ter nome');
+        }
+        if (this.preco <= 0) {
+            falha('preco invalido!');
+        }
+    }
+};
+produto.validarProduto();

@@ -108,7 +108,7 @@ usuario = {
 console.log(usuario)
 
 /**
- * Desafio
+ * ==== Desafio
  * Criar um objeto funcionário com:
  * - Array de strings com os nomes dos supervisores
  * - Função de bater ponto que recebe a hora (número) e retorna uma string
@@ -133,10 +133,33 @@ funcionario = {
     }
 }
 
-// union types
+// ==== union types
 let nota: number | string = 10
 console.log(`Minha nota é ${nota}!`)
 nota = '10'
 console.log(`Minha nota é ${nota}!`)
 // nota = true
 // console.log(`Minha nota é ${nota}!`)
+
+// ==== tipo "never"
+function falha(msg: string): never {
+    // while (true) {
+
+    // }
+    throw new Error(msg)
+}
+
+const produto = {
+    nome: 'Sabão',
+    preco: 8,
+    validarProduto() {
+        if (!this.nome || this.nome.trim().length == 0) {
+            falha('precisa ter nome')
+        }
+        if (this.preco <= 0) {
+            falha('preco invalido!')
+        }
+    }
+}
+
+produto.validarProduto()
