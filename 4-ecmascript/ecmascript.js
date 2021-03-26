@@ -99,4 +99,20 @@ function tuplaParam2() {
     console.log("2) " + params[0] + " " + params[1] + " " + params[2]);
 }
 tuplaParam2.apply(void 0, tupla);
+// ==== destructuring (array)
+var caracteristicas = ['Motor Zetec 1.8', 2020];
+// const motor = caracteristicas[0]
+// const ano = caracteristicas[1]
+var motor = caracteristicas[0], ano = caracteristicas[1];
+console.log(motor, ano);
+// ==== destructuring (objeto)
+var item = {
+    nome: 'SSD 480GB',
+    preco: 200,
+};
+var nomeItem = item.nome;
+var precoItem = item.preco;
+var n = item.nome, p = item.preco;
+console.log(n, p);
+console.log(nomeItem, precoItem);
 //# sourceMappingURL=ecmascript.js.map
