@@ -128,3 +128,8 @@ const precoItem = item.preco
 const { nome: n, preco: p } = item
 console.log(n, p)
 console.log(nomeItem, precoItem)
+
+const usuarioID: string = 'suportecod3r'
+const notificacoes: string = '9'
+const boasVindas = `Boas vindas ${usuarioID} - ${notificacoes} notificações`
+console.log(boasVindas)

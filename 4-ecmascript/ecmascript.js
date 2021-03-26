@@ -115,4 +115,8 @@ var precoItem = item.preco;
 var n = item.nome, p = item.preco;
 console.log(n, p);
 console.log(nomeItem, precoItem);
+var usuarioID = 'suportecod3r';
+var notificacoes = '9';
+var boasVindas = "Boas vindas " + usuarioID + " - " + notificacoes + " notifica\u00E7\u00F5es";
+console.log(boasVindas);
 //# sourceMappingURL=ecmascript.js.map
