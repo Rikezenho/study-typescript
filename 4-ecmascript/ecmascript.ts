@@ -76,3 +76,18 @@ function contagemRegressiva(inicio: number = 5, fim: number = inicio - 5): void 
 
 contagemRegressiva()
 contagemRegressiva(3)
+
+// ==== spread operator // rest
+const numbers = [1, 10, 99, -5]
+console.log(Math.max(...numbers))
+
+const turmaA: string[] = ['João', 'Maria', 'Fernando']
+const turmaB: string[] = ['Fernando', 'Miguel', 'Lorena', ...turmaA]
+console.log(turmaB)
+
+function retornarArray(...args: number[]): number[] {
+    return args
+}
+
+const numeros = retornarArray(1, 2, 3, 4, 5, 6)
+console.log(numeros)
