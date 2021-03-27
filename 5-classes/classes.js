@@ -99,4 +99,16 @@ console.log(carro1.frear());
 // console.log('maxima ->', carro1.velocidadeMaxima)
 // carro1.alterarVelocidade(150)
 // console.log('atual ->', carro1.velocidadeAtual)
+class Ferrari extends Carro {
+    acelerar() {
+        return this.alterarVelocidade(20);
+    }
+    frear() {
+        return this.alterarVelocidade(-15);
+    }
+}
+const f40 = new Ferrari('Ferrari', 'F40', 324);
+console.log(`${f40.marca} ${f40.modelo}`);
+console.log(f40.acelerar());
+console.log(f40.frear());
 //# sourceMappingURL=classes.js.map
