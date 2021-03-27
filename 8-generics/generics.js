@@ -111,27 +111,29 @@ fila.imprimir();
 // ==== restrições
 const numberFila = new Fila(1, 2, 3);
 numberFila.imprimir();
-// ==== Desafio
-// Desafio Mapa
-// Array de Objetos (Chave/Valor) -> itens
-// Métodos: obter(Chave), colocar({ C, V })
-// limpar(), imprimir()
 class Mapa {
-    constructor(items = new Map()) {
-        this.items = items;
-    }
-    colocar(item) {
-        const { chave, valor } = item;
-        this.items.set(chave, valor);
+    constructor() {
+        this.items = new Array();
     }
     obter(chave) {
-        return this.items.get(chave);
+        const resultado = this.items
+            .filter(i => i.chave === chave);
+        return resultado ? resultado[0] : null;
+    }
+    colocar(par) {
+        const encontrado = this.obter(par.chave);
+        if (encontrado) {
+            encontrado.valor = par.valor;
+        }
+        else {
+            this.items.push(par);
+        }
+    }
+    limpar() {
+        this.items = new Array();
     }
     imprimir() {
         console.log(this.items);
-    }
-    limpar() {
-        this.items.clear();
     }
 }
 const mapa = new Mapa();

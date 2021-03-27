@@ -154,27 +154,59 @@ numberFila.imprimir()
 // Métodos: obter(Chave), colocar({ C, V })
 // limpar(), imprimir()
 
-class Mapa<K, V> {
-    constructor(
-        private items: Map<K, V> = new Map()
-    ) {}
+// Minha solução:
+// class Mapa<K, V> {
+//     constructor(
+//         private items: Map<K, V> = new Map()
+//     ) {}
     
-    colocar(item: { chave: K, valor: V }) {
-        const { chave, valor } = item
-        this.items.set(chave, valor)
+//     colocar(item: { chave: K, valor: V }) {
+//         const { chave, valor } = item
+//         this.items.set(chave, valor)
+//     }
+
+//     obter(chave: K): V | undefined {
+//         return this.items.get(chave)
+//     }
+
+//     imprimir() {
+//         console.log(this.items)
+//     }
+
+//     limpar() {
+//         this.items.clear()
+//     }
+// }
+
+// Solução do curso:
+type Par<C, V> = { chave: C, valor: V }
+class Mapa<C,V> {
+    items: Array<Par<C, V>> = new Array<Par<C, V>>()
+
+    obter(chave: C): Par<C, V> | null {
+        const resultado = this.items
+            .filter(i => i.chave === chave)
+        
+        return resultado ?  resultado[0] : null
     }
 
-    obter(chave: K): V | undefined {
-        return this.items.get(chave)
+    colocar(par: Par<C, V>) {
+        const encontrado = this.obter(par.chave)
+        if (encontrado) {
+            encontrado.valor = par.valor
+        } else {
+            this.items.push(par)
+        }
+    }
+
+    limpar() {
+        this.items = new Array<Par<C, V>>()
     }
 
     imprimir() {
         console.log(this.items)
     }
 
-    limpar() {
-        this.items.clear()
-    }
 }
  
 const mapa = new Mapa<number, string>()
