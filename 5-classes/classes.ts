@@ -221,10 +221,10 @@ class Multiplicacao extends Calculo {
     }
 }
 
-const c1 = new Soma()
+const c1: Calculo = new Soma()
 c1.executar(2, 3, 4, 5)
 console.log(c1.getResultado())
 
-const c2 = new Multiplicacao()
+const c2: Calculo = new Multiplicacao()
 c2.executar(2, 3, 4, 5)
 console.log(c2.getResultado())
