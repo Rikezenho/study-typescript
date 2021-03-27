@@ -7,10 +7,29 @@ function mudarNome(pessoa) {
 }
 const pessoa = {
     nome: 'João',
-    idade: 27
+    idade: 27,
+    saudar(sobrenome) {
+        console.log(`Olá, meu nome é ${this.nome} ${sobrenome}`);
+    }
 };
 saudarComOla(pessoa);
 mudarNome(pessoa);
 saudarComOla(pessoa);
-saudarComOla({ nome: 'Jonas', idade: 27, altura: 1.75 });
+// saudarComOla({ nome: 'Jonas', idade: 27, altura: 1.75 })
+pessoa.saudar('Skywalker');
+// ==== usando classes...
+class Cliente {
+    constructor() {
+        this.nome = '';
+        this.ultimaCompra = new Date;
+    }
+    saudar(sobrenome) {
+        console.log(`Olá, meu nome é ${this.nome} ${sobrenome}`);
+    }
+}
+const meuCliente = new Cliente;
+meuCliente.nome = 'Han';
+saudarComOla(meuCliente);
+meuCliente.saudar('Solo');
+console.log(meuCliente.ultimaCompra);
 //# sourceMappingURL=interfaces.js.map
