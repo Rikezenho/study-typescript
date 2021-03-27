@@ -108,4 +108,39 @@ console.log(fila.proximo());
 console.log(fila.proximo());
 console.log(fila.proximo());
 fila.imprimir();
+// ==== restrições
+const numberFila = new Fila(1, 2, 3);
+numberFila.imprimir();
+// ==== Desafio
+// Desafio Mapa
+// Array de Objetos (Chave/Valor) -> itens
+// Métodos: obter(Chave), colocar({ C, V })
+// limpar(), imprimir()
+class Mapa {
+    constructor(items = new Map()) {
+        this.items = items;
+    }
+    colocar(item) {
+        const { chave, valor } = item;
+        this.items.set(chave, valor);
+    }
+    obter(chave) {
+        return this.items.get(chave);
+    }
+    imprimir() {
+        console.log(this.items);
+    }
+    limpar() {
+        this.items.clear();
+    }
+}
+const mapa = new Mapa();
+mapa.colocar({ chave: 1, valor: 'Pedro' });
+mapa.colocar({ chave: 2, valor: 'Rebeca' });
+mapa.colocar({ chave: 3, valor: 'Maria' });
+mapa.colocar({ chave: 1, valor: 'Gustavo' });
+console.log(mapa.obter(2));
+mapa.imprimir();
+mapa.limpar();
+mapa.imprimir();
 //# sourceMappingURL=generics.js.map

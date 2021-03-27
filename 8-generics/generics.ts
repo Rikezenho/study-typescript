@@ -110,7 +110,7 @@ console.log(new DiferencaEntreDatas(d1, d2).executar())
 // Desafio Classe Fila
 // Atributo: fila (Array)
 // Métodos: entrar, proximo, imprimir
-class Fila<T> {
+class Fila<T extends number | string> {
     private fila: Array<T>
 
     constructor(...args: T[]) {
@@ -143,3 +143,47 @@ console.log(fila.proximo())
 console.log(fila.proximo())
 console.log(fila.proximo())
 fila.imprimir()
+
+// ==== restrições
+const numberFila = new Fila<number>(1, 2, 3)
+numberFila.imprimir()
+
+// ==== Desafio
+// Desafio Mapa
+// Array de Objetos (Chave/Valor) -> itens
+// Métodos: obter(Chave), colocar({ C, V })
+// limpar(), imprimir()
+
+class Mapa<K, V> {
+    constructor(
+        private items: Map<K, V> = new Map()
+    ) {}
+    
+    colocar(item: { chave: K, valor: V }) {
+        const { chave, valor } = item
+        this.items.set(chave, valor)
+    }
+
+    obter(chave: K): V | undefined {
+        return this.items.get(chave)
+    }
+
+    imprimir() {
+        console.log(this.items)
+    }
+
+    limpar() {
+        this.items.clear()
+    }
+}
+ 
+const mapa = new Mapa<number, string>()
+mapa.colocar({ chave: 1, valor: 'Pedro' })
+mapa.colocar({ chave: 2, valor: 'Rebeca' })
+mapa.colocar({ chave: 3, valor: 'Maria' })
+mapa.colocar({ chave: 1, valor: 'Gustavo' })
+ 
+console.log(mapa.obter(2))
+mapa.imprimir()
+mapa.limpar()
+mapa.imprimir()
