@@ -136,7 +136,7 @@ console.log(pessoa1);
 // ==== atributos e métodos static
 class Matematica {
     static areaCirc(raio) {
-        return this.PI * raio * raio;
+        return Matematica.PI * raio * raio;
     }
 }
 Matematica.PI = 3.1416;
@@ -169,4 +169,17 @@ console.log(c1.getResultado());
 const c2 = new Multiplicacao();
 c2.executar(2, 3, 4, 5);
 console.log(c2.getResultado());
+// ==== private constructor e singleton
+class Unico {
+    constructor() { }
+    static getInstance() {
+        return Unico.instance;
+    }
+    agora() {
+        return new Date;
+    }
+}
+Unico.instance = new Unico;
+// const errado = new Unico()
+console.log(Unico.getInstance().agora());
 //# sourceMappingURL=classes.js.map
