@@ -33,6 +33,7 @@ let Eletrodomestico = class Eletrodomestico {
     }
 };
 Eletrodomestico = __decorate([
+    logarObjeto,
     imprimivel
 ], Eletrodomestico);
 function imprimivel(construtor) {

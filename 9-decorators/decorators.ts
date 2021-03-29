@@ -43,6 +43,7 @@ function logarObjeto(construtor: Construtor) {
 interface Eletrodomestico {
     imprimir?(): void
 }
+@logarObjeto
 @imprimivel
 class Eletrodomestico {
     constructor() {
