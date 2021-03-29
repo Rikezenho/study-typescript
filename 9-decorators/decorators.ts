@@ -59,3 +59,19 @@ function imprimivel(construtor: Function) {
 
 const eletro = new Eletrodomestico()
     eletro.imprimir && eletro.imprimir()
+
+// ==== desafio perfilAdmin
+const usuarioLogado = {
+    nome: 'Guilherme Filho',
+    email: 'guigui@gmail.com',
+    admin: false
+}
+
+// @perfilAdmin
+class MudancaAdministrativa {
+    critico() {
+        console.log('Algo crítico foi alterado!')
+    }
+}
+
+new MudancaAdministrativa().critico()
