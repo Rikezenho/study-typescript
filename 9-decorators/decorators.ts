@@ -112,6 +112,7 @@ class MudancaAdministrativa {
 
 // ==== decorator em função
 class ContaCorrente {
+    @naoNegativo
     private saldo: number
 
     constructor(saldo: number) {
@@ -120,11 +121,11 @@ class ContaCorrente {
 
     @congelar
     sacar(valor: number) {
-        if (valor <= this.saldo) {
+        // if (valor <= this.saldo) {
             this.saldo -= valor
             return true
-        }
-        return false
+        // }
+        // return false
     }
 
     @congelar
@@ -135,6 +136,8 @@ class ContaCorrente {
 
 const cc = new ContaCorrente(10248.57)
 cc.sacar(5000)
+cc.sacar(5248.57)
+cc.sacar(0.1)
 console.log(cc.getSaldo())
 
 // sabotagem do método de saldo
@@ -149,4 +152,20 @@ function congelar(alvo: any, nomePropriedade: string, descritor: PropertyDescrip
     console.log(alvo)
     console.log(nomePropriedade)
     descritor.writable = false
+}
+
+// ==== decorator de atributo
+function naoNegativo(alvo: any, nomePropriedade: string) {
+    delete alvo[nomePropriedade]
+    Object.defineProperty(alvo, nomePropriedade, {
+        get(): any {
+            return alvo[`_${nomePropriedade}`]
+        },
+        set(valor: any): void {
+            if (valor < 0) {
+                throw new Error('Saldo inválido')
+            }
+            alvo[`_${nomePropriedade}`] = valor
+        }
+    })
 }

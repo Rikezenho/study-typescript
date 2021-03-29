@@ -88,16 +88,19 @@ class ContaCorrente {
         this.saldo = saldo;
     }
     sacar(valor) {
-        if (valor <= this.saldo) {
-            this.saldo -= valor;
-            return true;
-        }
-        return false;
+        // if (valor <= this.saldo) {
+        this.saldo -= valor;
+        return true;
+        // }
+        // return false
     }
     getSaldo() {
         return this.saldo;
     }
 }
+__decorate([
+    naoNegativo
+], ContaCorrente.prototype, "saldo", void 0);
 __decorate([
     congelar
 ], ContaCorrente.prototype, "sacar", null);
@@ -106,6 +109,8 @@ __decorate([
 ], ContaCorrente.prototype, "getSaldo", null);
 const cc = new ContaCorrente(10248.57);
 cc.sacar(5000);
+cc.sacar(5248.57);
+cc.sacar(0.1);
 console.log(cc.getSaldo());
 // sabotagem do método de saldo
 // após a aplicação do decorator "congelar", impediu mudanças do método de saldo
@@ -118,5 +123,20 @@ function congelar(alvo, nomePropriedade, descritor) {
     console.log(alvo);
     console.log(nomePropriedade);
     descritor.writable = false;
+}
+// ==== decorator de atributo
+function naoNegativo(alvo, nomePropriedade) {
+    delete alvo[nomePropriedade];
+    Object.defineProperty(alvo, nomePropriedade, {
+        get() {
+            return alvo[`_${nomePropriedade}`];
+        },
+        set(valor) {
+            if (valor < 0) {
+                throw new Error('Saldo inválido');
+            }
+            alvo[`_${nomePropriedade}`] = valor;
+        }
+    });
 }
 //# sourceMappingURL=decorators.js.map
