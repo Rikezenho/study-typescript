@@ -49,11 +49,37 @@ const usuarioLogado = {
     email: 'guigui@gmail.com',
     admin: false
 };
-// @perfilAdmin
-class MudancaAdministrativa {
+// function perfilAdmin(usuarioLogado: Usuario) {
+//     return (_: Function) => {
+//         if (!usuarioLogado || !usuarioLogado.admin) {
+//             throw new Error('Usuário nao possui permissão de admin!')
+//         }
+//     }
+// }
+// @perfilAdmin(usuarioLogado)
+// class MudancaAdministrativa {
+//     critico() {
+//         console.log('Algo crítico foi alterado!')
+//     }
+// }
+// new MudancaAdministrativa().critico()
+// solução do curso
+function perfilAdmin(construtor) {
+    return class extends construtor {
+        constructor(...args) {
+            super(...args);
+            if (!usuarioLogado || !usuarioLogado.admin) {
+                throw new Error('Sem permissão!');
+            }
+        }
+    };
+}
+let MudancaAdministrativa = class MudancaAdministrativa {
     critico() {
         console.log('Algo crítico foi alterado!');
     }
-}
-new MudancaAdministrativa().critico();
+};
+MudancaAdministrativa = __decorate([
+    perfilAdmin
+], MudancaAdministrativa);
 //# sourceMappingURL=decorators.js.map

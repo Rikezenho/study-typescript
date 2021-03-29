@@ -60,18 +60,52 @@ function imprimivel(construtor: Function) {
 const eletro = new Eletrodomestico()
     eletro.imprimir && eletro.imprimir()
 
+interface Usuario {
+    nome: string
+    email: string
+    admin: boolean
+}
+
 // ==== desafio perfilAdmin
-const usuarioLogado = {
+const usuarioLogado: Usuario = {
     nome: 'Guilherme Filho',
     email: 'guigui@gmail.com',
     admin: false
 }
 
-// @perfilAdmin
+// function perfilAdmin(usuarioLogado: Usuario) {
+//     return (_: Function) => {
+//         if (!usuarioLogado || !usuarioLogado.admin) {
+//             throw new Error('Usuário nao possui permissão de admin!')
+//         }
+//     }
+// }
+
+// @perfilAdmin(usuarioLogado)
+// class MudancaAdministrativa {
+//     critico() {
+//         console.log('Algo crítico foi alterado!')
+//     }
+// }
+
+// new MudancaAdministrativa().critico()
+
+// solução do curso
+
+function perfilAdmin<T extends Construtor>(construtor: T) {
+    return class extends construtor {
+        constructor(...args: any[]) {
+            super(...args)
+            if (!usuarioLogado || !usuarioLogado.admin) {
+                throw new Error('Sem permissão!')
+            }
+        }
+    }
+}
+
+@perfilAdmin
 class MudancaAdministrativa {
     critico() {
         console.log('Algo crítico foi alterado!')
     }
 }
-
-new MudancaAdministrativa().critico()
