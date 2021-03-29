@@ -109,3 +109,44 @@ class MudancaAdministrativa {
         console.log('Algo crítico foi alterado!')
     }
 }
+
+// ==== decorator em função
+class ContaCorrente {
+    private saldo: number
+
+    constructor(saldo: number) {
+        this.saldo = saldo
+    }
+
+    @congelar
+    sacar(valor: number) {
+        if (valor <= this.saldo) {
+            this.saldo -= valor
+            return true
+        }
+        return false
+    }
+
+    @congelar
+    getSaldo() {
+        return this.saldo
+    }
+}
+
+const cc = new ContaCorrente(10248.57)
+cc.sacar(5000)
+console.log(cc.getSaldo())
+
+// sabotagem do método de saldo
+// após a aplicação do decorator "congelar", impediu mudanças do método de saldo
+// cc.getSaldo = function() {
+//     return this['saldo'] + 7000
+// }
+console.log(cc.getSaldo())
+
+// Object.freeze()
+function congelar(alvo: any, nomePropriedade: string, descritor: PropertyDescriptor) {
+    console.log(alvo)
+    console.log(nomePropriedade)
+    descritor.writable = false
+}

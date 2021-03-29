@@ -82,4 +82,41 @@ let MudancaAdministrativa = class MudancaAdministrativa {
 MudancaAdministrativa = __decorate([
     perfilAdmin
 ], MudancaAdministrativa);
+// ==== decorator em função
+class ContaCorrente {
+    constructor(saldo) {
+        this.saldo = saldo;
+    }
+    sacar(valor) {
+        if (valor <= this.saldo) {
+            this.saldo -= valor;
+            return true;
+        }
+        return false;
+    }
+    getSaldo() {
+        return this.saldo;
+    }
+}
+__decorate([
+    congelar
+], ContaCorrente.prototype, "sacar", null);
+__decorate([
+    congelar
+], ContaCorrente.prototype, "getSaldo", null);
+const cc = new ContaCorrente(10248.57);
+cc.sacar(5000);
+console.log(cc.getSaldo());
+// sabotagem do método de saldo
+// após a aplicação do decorator "congelar", impediu mudanças do método de saldo
+// cc.getSaldo = function() {
+//     return this['saldo'] + 7000
+// }
+console.log(cc.getSaldo());
+// Object.freeze()
+function congelar(alvo, nomePropriedade, descritor) {
+    console.log(alvo);
+    console.log(nomePropriedade);
+    descritor.writable = false;
+}
 //# sourceMappingURL=decorators.js.map
