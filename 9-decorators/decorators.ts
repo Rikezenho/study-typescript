@@ -18,12 +18,12 @@ function decorator(obj: { a: string, b?: number }) {
 // @logarClasseSe(true)
 // @decorator({ a: 'Teste', b: 123 })
 // @decorator({ a: 'Teste' })
-@logarObjeto
-class Eletrodomestico {
-    constructor() {
-        console.log('novo...')
-    }
-}
+// @logarObjeto
+// class Eletrodomestico {
+//     constructor() {
+//         console.log('novo...')
+//     }
+// }
 
 type Construtor = { new(...args: any[]): {} }
 
@@ -38,4 +38,23 @@ function logarObjeto(construtor: Construtor) {
     }
 }
 
-new Eletrodomestico()
+// new Eletrodomestico()
+
+interface Eletrodomestico {
+    imprimir?(): void
+}
+@imprimivel
+class Eletrodomestico {
+    constructor() {
+        console.log('novo...')
+    }
+}
+
+function imprimivel(construtor: Function) {
+    construtor.prototype.imprimir = function () {
+        console.log(this)
+    }
+}
+
+const eletro = new Eletrodomestico()
+    eletro.imprimir && eletro.imprimir()
