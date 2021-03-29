@@ -88,11 +88,11 @@ class ContaCorrente {
         this.saldo = saldo;
     }
     sacar(valor) {
-        // if (valor <= this.saldo) {
-        this.saldo -= valor;
-        return true;
-        // }
-        // return false
+        if (valor <= this.saldo) {
+            this.saldo -= valor;
+            return true;
+        }
+        return false;
     }
     getSaldo() {
         return this.saldo;

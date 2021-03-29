@@ -121,11 +121,11 @@ class ContaCorrente {
 
     @congelar
     sacar(valor: number) {
-        // if (valor <= this.saldo) {
+        if (valor <= this.saldo) {
             this.saldo -= valor
             return true
-        // }
-        // return false
+        }
+        return false
     }
 
     @congelar
