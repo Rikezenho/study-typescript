@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <Contador :valorInicial="10" />
-    <ContadorClasse :valorInicial="10" />
+    <ContadorClasse :valorInicial="100" />
   </div>
 </template>
 

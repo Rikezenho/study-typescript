@@ -8,11 +8,12 @@
 </template>
 
 <script lang="ts">
-import { Vue, Component } from 'vue-property-decorator';
+import { Vue, Component, Prop } from 'vue-property-decorator';
 
 @Component
 export default class ContadorClasse extends Vue {
-    private valor: number = 0;
+    @Prop(Number) private readonly valorInicial!: number;
+    private valor: number = this.valorInicial;
 
     public setValor(delta: number) {
         this.valor += delta;
